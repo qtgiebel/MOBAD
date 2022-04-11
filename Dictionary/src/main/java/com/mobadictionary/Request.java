@@ -2,18 +2,18 @@ package com.mobadictionary;
 
 public class Request {
 
-    private String searchParams;
+    private String resource;
 
     private String game;
 
     private String keyword;
 
-    public String getSearchParams() {
-        return searchParams;
+    public String getResource() {
+        return resource;
     }
 
-    public void setHttpMethod(String httpMethod) {
-        this.searchParams = httpMethod;
+    public void setResource(String resource) {
+        this.resource = resource;
     }
 
     public String getGame() {
