@@ -23,6 +23,17 @@ public class getAllDefinitions {
         DynamoDBMapper mapper = new DynamoDBMapper(client);
         DefinitionEntry entry = null;
 
+        switch (request.getSearchParams()) {
+            case "/definitions" :
+                
+            case "/title" :
+
+            case "/keyword" :
+
+            default:
+                break;
+        }
+
         return null;
     }
 
