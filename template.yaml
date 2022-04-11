@@ -29,6 +29,25 @@ Resources:
           Properties:
             Path: /hello
             Method: get
+  DictionaryTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "DICTIONARY"
+      AttributeDefinitions:
+        - AttributeName: "Game"
+          AtrributeType: "S"
+        - AttributeName: "Keyword"
+          AttributeType: "S"
+        - AttributeName: "Definition"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "Game"
+          KeyType: "Hash"
+        - AttributeName: "Keyword"
+          AttributeType: "Range"
+      ProvisionedThroughput:
+        ReadCapacityUnits: "5"
+        WriteCapacityUnits: "5"
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
