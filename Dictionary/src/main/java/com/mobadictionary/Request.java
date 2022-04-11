@@ -4,9 +4,15 @@ public class Request {
 
     private String resource;
 
-    private String game;
+    private String value;
 
-    private String keyword;
+    public Request(){
+    }
+
+    public Request(String resource, String value) {
+        this.resource = resource;
+        this.value = value;
+    }
 
     public String getResource() {
         return resource;
@@ -16,19 +22,11 @@ public class Request {
         this.resource = resource;
     }
 
-    public String getGame() {
-        return game;
+    public String getValue() {
+        return value;
     }
 
-    public void setGame(String game) {
-        this.game = game;
-    }
-
-    public String getKeyword() {
-        return keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
+    public void setValue(String value) {
+        this.value = value;
     }
 }
