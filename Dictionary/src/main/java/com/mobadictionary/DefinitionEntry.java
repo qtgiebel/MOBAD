@@ -1,24 +1,21 @@
 package com.mobadictionary;
 
-import org.json.simple.*;
-
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
+@DynamoDBTable(tableName = "DICTIONARY")
 public class DefinitionEntry {
 
     private String keyword;
     private String definition;
     private String game;
 
-    public DefinitionEntry(JSONObject json) {
-        this.keyword = (String) json.get("keyword");
-        this.definition = (String) json.get("definition");
-        this.game = (String) json.get("game");
+    public DefinitionEntry() {
+
     }
 
-    @Override
-    public String toString() {
-        return "{\"keyword\":\"" + this.keyword
-                + "\",\"definition\":\"" + this.definition
-                + "\",\"game\":\"" + this.game + "\"}";
+    public DefinitionEntry(String keyword, String definition, String game) {
+        this.keyword = keyword;
+        this.definition = definition;
+        this.game = game;
     }
 
     public String getDefinition() {
