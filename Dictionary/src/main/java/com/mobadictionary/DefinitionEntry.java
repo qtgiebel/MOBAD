@@ -2,9 +2,6 @@ package com.mobadictionary;
 
 import org.json.simple.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class DefinitionEntry {
 
     private String keyword;
