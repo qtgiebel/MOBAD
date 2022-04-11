@@ -1,7 +1,8 @@
 package com.mobadictionary;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
-@DynamoDBTable(tableName = "DICTIONARY")
+
+@DynamoDBTable(tableName = "test")
 public class DefinitionEntry {
 
     private String keyword;
@@ -9,13 +10,12 @@ public class DefinitionEntry {
     private String game;
 
     public DefinitionEntry() {
-
     }
 
     public DefinitionEntry(String keyword, String definition, String game) {
+        this.game = game;
         this.keyword = keyword;
         this.definition = definition;
-        this.game = game;
     }
 
     public String getDefinition() {

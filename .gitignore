@@ -34,3 +34,4 @@
 # IntelliJ
 out/
 target/
+/Dictionary/dependency-reduced-pom.xml
