@@ -5,9 +5,14 @@ import com.amazonaws.services.dynamodbv2.datamodeling.*;
 @DynamoDBTable(tableName = "test")
 public class DefinitionEntry {
 
-    private String keyword;
-    private String definition;
+    @DynamoDBHashKey
     private String game;
+
+    @DynamoDBRangeKey
+    private String keyword;
+
+    @DynamoDBAttribute
+    private String definition;
 
     public DefinitionEntry() {
     }
