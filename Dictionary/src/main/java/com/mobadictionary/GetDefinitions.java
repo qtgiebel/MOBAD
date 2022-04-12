@@ -32,11 +32,9 @@ public class GetDefinitions implements RequestHandler<Request,Response> {
                     entry = new DefinitionEntry(item);
                     response.insert(entry);
                 }
-                break;
+                return response;
             case "title":
-
-                Map<String, AttributeValue> expressionAttributeValues =
-                        new HashMap<String, AttributeValue>();
+                Map<String, AttributeValue> expressionAttributeValues = new HashMap<>();
                 expressionAttributeValues.put(":val", new AttributeValue().withS(request.getValue()));
 
                 ScanRequest titleRequest = new ScanRequest()
@@ -44,13 +42,14 @@ public class GetDefinitions implements RequestHandler<Request,Response> {
                         .withFilterExpression("game = :val")
                         .withExpressionAttributeValues(expressionAttributeValues);
 
-
                 ScanResult titleResult = client.scan(titleRequest);
+
                 for (Map<String, AttributeValue> item : titleResult.getItems()) {
                     entry = new DefinitionEntry(item);
                     response.insert(entry);
                 }
 
+                return response;
             case "keyword":
                 response.insert(
                         mapper.load(
