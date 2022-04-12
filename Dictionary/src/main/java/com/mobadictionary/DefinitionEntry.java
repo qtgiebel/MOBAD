@@ -1,6 +1,9 @@
 package com.mobadictionary;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+
+import java.util.Map;
 
 @DynamoDBTable(tableName = "test")
 public class DefinitionEntry {
@@ -15,6 +18,12 @@ public class DefinitionEntry {
     private String definition;
 
     public DefinitionEntry() {}
+
+    public DefinitionEntry(Map<String, AttributeValue> input) {
+        this.keyword = input.get("keyword").toString();
+        this.keyword = input.get("keyword").toString();
+        this.keyword = input.get("keyword").toString();
+    }
 
     public String getDefinition() {
         return definition;
