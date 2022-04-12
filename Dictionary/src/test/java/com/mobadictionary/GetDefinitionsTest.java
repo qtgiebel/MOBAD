@@ -12,7 +12,7 @@ public class GetDefinitionsTest {
 
     DefinitionEntry definitionEntry;
     GetDefinitions getDefinitions;
-    Response response;
+    GoodResponse response;
     Request request;
 
     @BeforeEach
@@ -26,14 +26,14 @@ public class GetDefinitionsTest {
     public void getAllDefinitionsSuccess() {
         Context context = null;
         request = new Request();
-        response = new Response();
+        GoodResponse response = new GoodResponse();
         getDefinitions = new GetDefinitions();
 
         request.setResource("definitions");
 
-        response = getDefinitions.handleRequest(request, context);
+        response = (GoodResponse) getDefinitions.handleRequest(request, context);
 
-        assertEquals(21, response.getDefinitions().size());
+        assertEquals(21, GoodResponse.getDefinitions().size());
     }
 
 
