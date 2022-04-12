@@ -41,6 +41,12 @@
             <artifactId>aws-java-sdk-dynamodb</artifactId>
             <version>1.12.195</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.0.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 

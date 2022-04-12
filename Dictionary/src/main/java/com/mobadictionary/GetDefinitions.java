@@ -13,10 +13,11 @@ import java.util.Map;
 
 public class GetDefinitions implements RequestHandler<Request,Response> {
 
-    AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
+    //AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 
     @Override
     public Response handleRequest(Request request, Context context) {
+        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
         DefinitionEntry entry;
         Response response = new Response();
 
