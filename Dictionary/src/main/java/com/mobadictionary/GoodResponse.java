@@ -32,4 +32,12 @@ public class GoodResponse implements Response<DefinitionEntry> {
     public void setDefinitions(List<DefinitionEntry> definitions) {
         this.definitions = definitions;
     }
+
+    @Override
+    public String toString() {
+        return "GoodResponse{" +
+                "status='" + status + '\'' +
+                ", definitions=" + definitions +
+                '}';
+    }
 }
