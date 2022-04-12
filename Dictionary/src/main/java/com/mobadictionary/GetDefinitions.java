@@ -29,20 +29,15 @@ public class GetDefinitions implements RequestHandler<Request, Response> {
                             .withTableName("DICTIONARY");
 
                     ScanResult result = client.scan(scanRequest);
-                    System.out.println("count: " + result.getCount());
 
                     if (result.getCount() == 0)
                         throw new ResourceNotFoundException("No definitions found");
 
-                    System.out.println("Made it");
                     response = new GoodResponse();
 
                     for (Map<String, AttributeValue> item : result.getItems()) {
-                        System.out.println(item + "\n");
                         entry = new DefinitionEntry(item);
-                        System.out.println(entry + "\n");
                         response.insert(entry);
-
                     }
 
                     return response;
@@ -58,9 +53,9 @@ public class GetDefinitions implements RequestHandler<Request, Response> {
 
                     ScanResult titleResult = client.scan(titleRequest);
 
-                    if (titleResult.getCount() == 0) {
+                    if (titleResult.getCount() == 0)
                         throw new ResourceNotFoundException("No game found with that title.");
-                    }
+
                     response = new GoodResponse();
 
                     for (Map<String, AttributeValue> item : titleResult.getItems()) {
