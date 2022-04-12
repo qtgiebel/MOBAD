@@ -25,13 +25,14 @@ public class GetAllDefinitions implements RequestHandler<Request,Response> {
         switch (request.getResource()) {
             case "definitions":
                 ScanRequest scanRequest = new ScanRequest()
-                        .withTableName("Reply");
+                        .withTableName("test");
 
                 ScanResult result = client.scan(scanRequest);
                 for (Map<String, AttributeValue> item : result.getItems()){
                     entry = new DefinitionEntry(item);
                     response.insert(entry);
                 }
+                break;
             case "title":
 
             case "keyword":
