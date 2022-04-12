@@ -38,8 +38,8 @@ public class GetDefinitions implements RequestHandler<Request,Response> {
                 expressionAttributeValues.put(":val", new AttributeValue().withS(request.getValue()));
 
                 ScanRequest titleRequest = new ScanRequest()
-                        .withTableName("test")
-                        .withFilterExpression("game = :val")
+                        .withTableName("DICTIONARY")
+                        .withFilterExpression("Game = :val")
                         .withExpressionAttributeValues(expressionAttributeValues);
 
                 ScanResult titleResult = client.scan(titleRequest);
