@@ -48,4 +48,13 @@ public class DefinitionEntry {
     public void setKeyword(String keyword) {
         this.keyword = keyword;
     }
+
+    @Override
+    public String toString() {
+        return "DefinitionEntry{" +
+                "game='" + game + '\'' +
+                ", keyword='" + keyword + '\'' +
+                ", definition='" + definition + '\'' +
+                '}';
+    }
 }
