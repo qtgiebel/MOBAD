@@ -11,6 +11,8 @@
 # Generated files
 .idea/**/contentModel.xml
 .idea/libraries
+/Dictionary/dependency-reduced-pom.xml
+/Dictionary/.aws-sam/
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
@@ -34,4 +36,4 @@
 # IntelliJ
 out/
 target/
-/Dictionary/dependency-reduced-pom.xml
+
