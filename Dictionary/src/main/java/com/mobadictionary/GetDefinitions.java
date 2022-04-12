@@ -25,7 +25,7 @@ public class GetDefinitions implements RequestHandler<Request,Response> {
         switch (request.getResource()) {
             case "definitions":
                 ScanRequest scanRequest = new ScanRequest()
-                        .withTableName("test");
+                        .withTableName("DICTIONARY");
 
                 ScanResult result = client.scan(scanRequest);
                 for (Map<String, AttributeValue> item : result.getItems()){
