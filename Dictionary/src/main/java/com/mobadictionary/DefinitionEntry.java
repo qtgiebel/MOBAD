@@ -5,7 +5,7 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
 import java.util.Map;
 
-@DynamoDBTable(tableName = "test")
+@DynamoDBTable(tableName = "DICTIONARY")
 public class DefinitionEntry {
 
     @DynamoDBAttribute
@@ -20,9 +20,9 @@ public class DefinitionEntry {
     public DefinitionEntry() {}
 
     public DefinitionEntry(Map<String, AttributeValue> input) {
-        this.keyword = input.get("keyword").toString();
-        this.game = input.get("game").toString();
-        this.definition = input.get("definition").toString();
+        this.keyword = input.get("Keyword").getS();
+        this.game = input.get("Game").getS();
+        this.definition = input.get("Description").getS();
     }
 
     public String getDefinition() {
