@@ -10,6 +10,7 @@ import com.amazonaws.services.dynamodbv2.model.ScanResult;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class GetAllDefinitions implements RequestHandler<Request,Response> {
@@ -34,6 +35,22 @@ public class GetAllDefinitions implements RequestHandler<Request,Response> {
                 }
                 break;
             case "title":
+
+                Map<String, AttributeValue> expressionAttributeValues =
+                        new HashMap<String, AttributeValue>();
+                expressionAttributeValues.put(":val", new AttributeValue().withS(request.getValue()));
+
+                ScanRequest titleRequest = new ScanRequest()
+                        .withTableName("test")
+                        .withFilterExpression("game = :val")
+                        .withExpressionAttributeValues(expressionAttributeValues);
+
+
+                ScanResult titleResult = client.scan(titleRequest);
+                for (Map<String, AttributeValue> item : titleResult.getItems()) {
+                    entry = new DefinitionEntry(item);
+                    response.insert(entry);
+                }
 
             case "keyword":
                 response.insert(
