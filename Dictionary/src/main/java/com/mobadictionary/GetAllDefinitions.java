@@ -28,7 +28,6 @@ public class GetAllDefinitions implements RequestHandler<Request,Response> {
                 response.insert(
                         mapper.load(
                                 DefinitionEntry.class,
-                                "LeagueOfLegends",
                                 request.getValue()));
                 return response;
             default:

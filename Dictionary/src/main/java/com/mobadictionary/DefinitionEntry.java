@@ -5,10 +5,10 @@ import com.amazonaws.services.dynamodbv2.datamodeling.*;
 @DynamoDBTable(tableName = "test")
 public class DefinitionEntry {
 
-    @DynamoDBHashKey
+    @DynamoDBAttribute
     private String game;
 
-    @DynamoDBRangeKey
+    @DynamoDBHashKey
     private String keyword;
 
     @DynamoDBAttribute
