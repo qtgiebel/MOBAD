@@ -9,19 +9,28 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 
 import java.util.Map;
 
-public class GetAllDefinitions implements RequestHandler<Request,DefinitionEntry> {
+public class GetAllDefinitions implements RequestHandler<Request,Response> {
 
     AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
     DynamoDBMapper mapper = new DynamoDBMapper(client);
 
     @Override
-    public DefinitionEntry handleRequest(Request request, Context context) {
+    public Response handleRequest(Request request, Context context) {
         DefinitionEntry entry = null;
+        Response response = new Response();
 
         switch (request.getResource()) {
+            case "definitions":
+
+            case "title":
+
             case "keyword":
-                entry = mapper.load(DefinitionEntry.class, "Generic", request.getValue());
-                return entry;
+                response.insert(
+                        mapper.load(
+                                DefinitionEntry.class,
+                                "LeagueOfLegends",
+                                request.getValue()));
+                return response;
             default:
                 break;
         }
