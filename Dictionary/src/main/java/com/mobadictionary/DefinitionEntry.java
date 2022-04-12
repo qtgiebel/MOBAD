@@ -1,20 +1,15 @@
 package com.mobadictionary;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
 import java.util.Map;
 
-@DynamoDBTable(tableName = "DICTIONARY")
 public class DefinitionEntry {
 
-    @DynamoDBAttribute
     private String game;
 
-    @DynamoDBHashKey
     private String keyword;
 
-    @DynamoDBAttribute
     private String definition;
 
     public DefinitionEntry() {}
