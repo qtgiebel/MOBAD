@@ -21,8 +21,8 @@ public class DefinitionEntry {
 
     public DefinitionEntry(Map<String, AttributeValue> input) {
         this.keyword = input.get("keyword").toString();
-        this.keyword = input.get("keyword").toString();
-        this.keyword = input.get("keyword").toString();
+        this.game = input.get("game").toString();
+        this.definition = input.get("definition").toString();
     }
 
     public String getDefinition() {
