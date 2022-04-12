@@ -21,3 +21,4 @@ Our API operations will include getAllDefinitions, getByGame, and getByKeyword
 - Java11 (Coretto)
 - Maven
 - Docker
+- AWS Toolkit for IntelliJ
