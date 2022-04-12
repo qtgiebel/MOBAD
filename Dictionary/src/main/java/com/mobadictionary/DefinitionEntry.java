@@ -14,14 +14,7 @@ public class DefinitionEntry {
     @DynamoDBAttribute
     private String definition;
 
-    public DefinitionEntry() {
-    }
-
-    public DefinitionEntry(String keyword, String definition, String game) {
-        this.game = game;
-        this.keyword = keyword;
-        this.definition = definition;
-    }
+    public DefinitionEntry() {}
 
     public String getDefinition() {
         return definition;

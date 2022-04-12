@@ -6,13 +6,7 @@ public class Request {
 
     private String value;
 
-    public Request(){
-    }
-
-    public Request(String resource, String value) {
-        this.resource = resource;
-        this.value = value;
-    }
+    public Request() {}
 
     public String getResource() {
         return resource;
