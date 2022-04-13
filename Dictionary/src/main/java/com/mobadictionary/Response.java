@@ -38,6 +38,4 @@ public class Response {
     public void setDefinitions(List<DefinitionEntry> definitions) {
         this.definitions = definitions;
     }
-
-
 }
