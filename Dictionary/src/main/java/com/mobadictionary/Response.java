@@ -1,11 +1,13 @@
 package com.mobadictionary;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Response {
 
-    private String status;
+    private Map<String,String> error;
     private List<DefinitionEntry> definitions;
 
     public Response() {
@@ -16,12 +18,17 @@ public class Response {
         definitions.add(entry);
     }
 
-    public String getStatus() {
-        return status;
+    public void error(Map<String, String> error) {
+        this.error = error;
+        definitions = null;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public Map<String, String> getError() {
+        return error;
+    }
+
+    public void setError(Map<String, String> error) {
+        this.error = error;
     }
 
     public List<DefinitionEntry> getDefinitions() {
@@ -31,4 +38,6 @@ public class Response {
     public void setDefinitions(List<DefinitionEntry> definitions) {
         this.definitions = definitions;
     }
+
+
 }

@@ -11,14 +11,16 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetDefinitions implements RequestHandler<Request,Response> {
+public class GetDefinitions implements RequestHandler<Request,Object> {
 
     AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
+    Map<String,String> error;
 
     @Override
     public Response handleRequest(Request request, Context context) {
         DefinitionEntry entry;
         Response response = new Response();
+        error = new HashMap<>();
 
         switch (request.getResource()) {
             case "definitions":
@@ -26,6 +28,13 @@ public class GetDefinitions implements RequestHandler<Request,Response> {
                         .withTableName("DICTIONARY");
 
                 ScanResult result = client.scan(scanRequest);
+
+                if (result.getCount() < 1) {
+                    error.put("errorMessage", "No records could be found");
+                    response.error(error);
+                    return response;
+                }
+
                 for (Map<String, AttributeValue> item : result.getItems()){
                     entry = new DefinitionEntry(item);
                     response.insert(entry);
@@ -41,6 +50,12 @@ public class GetDefinitions implements RequestHandler<Request,Response> {
                         .withExpressionAttributeValues(titleExpressionAttributes);
 
                 ScanResult titleResult = client.scan(titleRequest);
+
+                if (titleResult.getCount() < 1) {
+                    error.put("errorMessage", "No records could be found for that game");
+                    response.error(error);
+                    return response;
+                }
 
                 for (Map<String, AttributeValue> item : titleResult.getItems()) {
                     entry = new DefinitionEntry(item);
@@ -59,6 +74,12 @@ public class GetDefinitions implements RequestHandler<Request,Response> {
 
                 ScanResult keywordResult = client.scan(keywordRequest);
 
+                if (keywordResult.getCount() != 1) {
+                    error.put("errorMessage", "No records could be found for that keyword");
+                    response.error(error);
+                    return response;
+                }
+
                 for (Map<String, AttributeValue> item : keywordResult.getItems()) {
                     entry = new DefinitionEntry(item);
                     response.insert(entry);
@@ -66,9 +87,9 @@ public class GetDefinitions implements RequestHandler<Request,Response> {
 
                 return response;
             default:
-                break;
+                error.put("errorMessage", "No resource/operation could be found");
+                response.error(error);
+                return response;
         }
-
-        return null;
     }
 }
