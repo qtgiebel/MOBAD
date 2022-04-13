@@ -21,7 +21,6 @@ public class GetDefinitionsTest {
 
     @Test
     public void handleKeywordRequestSuccess() {
-        setUp();
         request.setResource("keyword");
         request.setValue("Bot");
 
