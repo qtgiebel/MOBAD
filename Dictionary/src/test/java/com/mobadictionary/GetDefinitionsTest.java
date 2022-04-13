@@ -3,6 +3,7 @@ package com.mobadictionary;
 
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
