@@ -3,8 +3,8 @@ package com.mobadictionary;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class GetDefinitionsTest {
 
@@ -27,6 +27,8 @@ public class GetDefinitionsTest {
 
         response = wilson.handleRequest(request, null);
 
-        System.out.println(response.toString());
+        assertEquals("LeagueOfLegends", response.getDefinitions().get(0).getGame());
+        assertEquals("Bot", response.getDefinitions().get(0).getKeyword());
+        assertEquals("The duo lane", response.getDefinitions().get(0).getDefinition());
     }
 }
