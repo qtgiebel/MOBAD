@@ -30,4 +30,23 @@ public class GetDefinitionsTest {
 
         System.out.println(response);
     }
+
+    @Test
+    public void handleTitleRequestSuccess() {
+        request.setResource("title");
+        request.setValue("LeagueOfLegends");
+
+        response = wilson.handleRequest(request, null);
+
+        assertEquals(3, response.getDefinitions().size());
+    }
+
+    @Test
+    public void getAllDefinitionsSuccess() {
+        request.setResource("definitions");
+
+        response = wilson.handleRequest(request, null);
+
+        assertEquals(21, response.getDefinitions().size());
+    }
 }
