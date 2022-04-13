@@ -21,15 +21,12 @@ public class GetDefinitionsTest {
     }
 
     @Test
-    public void handleKeywordRequestSuccess() {
-        request.setResource("keyword");
-        request.setValue("Bot");
+    public void getAllDefinitionsSuccess() {
+        request.setResource("definitions");
 
         response = wilson.handleRequest(request, null);
 
-        assertEquals("LeagueOfLegends", response.getDefinitions().get(0).getGame());
-        assertEquals("Bot", response.getDefinitions().get(0).getKeyword());
-        assertEquals("The duo lane", response.getDefinitions().get(0).getDefinition());
+        assertEquals(21, response.getDefinitions().size());
     }
 
     @Test
@@ -43,12 +40,35 @@ public class GetDefinitionsTest {
     }
 
     @Test
-    public void getAllDefinitionsSuccess() {
-        request.setResource("definitions");
+    public void catchBadTitleSuccess() {
+        request.setResource("title");
+        request.setValue("nope");
 
         response = wilson.handleRequest(request, null);
 
-        assertEquals(21, response.getDefinitions().size());
+        assertNotNull(response.getError());
+    }
+
+    @Test
+    public void handleKeywordRequestSuccess() {
+        request.setResource("keyword");
+        request.setValue("Bot");
+
+        response = wilson.handleRequest(request, null);
+
+        assertEquals("LeagueOfLegends", response.getDefinitions().get(0).getGame());
+        assertEquals("Bot", response.getDefinitions().get(0).getKeyword());
+        assertEquals("The duo lane", response.getDefinitions().get(0).getDefinition());
+    }
+
+    @Test
+    public void catchBadKeywordSuccess() {
+        request.setResource("keyword");
+        request.setValue("nope");
+
+        response = wilson.handleRequest(request, null);
+
+        assertNotNull(response.getError());
     }
 
     @Test
