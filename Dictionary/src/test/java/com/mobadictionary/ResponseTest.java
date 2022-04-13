@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class ResponseTest {
 
     @Test
-    void insertDefinitionEntrySuccess() {
+    public void insertDefinitionEntrySuccess() {
         DefinitionEntry entry = new DefinitionEntry();
         Response response = new Response();
         response.insert(entry);
