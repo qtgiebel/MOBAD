@@ -25,8 +25,13 @@ with implementing the necessary libraries for the project.
 
 Estimated time spent: 15+ hours
 
-Created new repository for the project, this time implementing the provided AWS Toolkit. Using the Toolkit, we recreated the project using Java 11 Correto,
+Day - 1 : Created new repository for the project, this time implementing the provided AWS Toolkit. Using the Toolkit, we recreated the project using Java 11 Correto,
 with dependencies for various other Amazon provided services. Refactored previous codebase multiple times in attempts to create a working application. Decided on
 a fresh start with a new codebase, and were able to create a working project that correctly interacted with AWS Lambda, DynamoDB, and API Gateway. Got application
 working with a test database, and eventually with the production database. Began work on implementing unit tests and extensive error handling, and were met 
 with various issues related to working with a primarily remote application.
+
+Day - 2 : We figured out how to properly utilize the dynamodb objects, and how to get the data through api gateway. Wrote tests that cover all parts of the code that are not redundant (already covered when passing through API Gateway and DynamoDB Scans). Finished up by adding Javadocs throughout the code,
+and ensuring that code still ran.
+
+
