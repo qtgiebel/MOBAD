@@ -1,7 +1,5 @@
 package com.mobadictionary;
 
-
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -23,11 +21,12 @@ public class GetDefinitionsTest {
 
     @Test
     public void handleKeywordRequestSuccess() {
-        request.setResource("Keyword");
+        setUp();
+        request.setResource("keyword");
         request.setValue("Bot");
 
         response = wilson.handleRequest(request, null);
 
-        System.out.println(response);
+        System.out.println(response.toString());
     }
 }
