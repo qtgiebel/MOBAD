@@ -35,7 +35,7 @@ public class GetDefinitions implements RequestHandler<Request,Object> {
      * Receives a request object with the search terms for the API,
      * and returns a response with the requested data.
      * @param request The API Request.
-     * @param context The API Response.
+     * @param context The context provided by Lambda.
      * @return The API Response.
      */
     @Override
