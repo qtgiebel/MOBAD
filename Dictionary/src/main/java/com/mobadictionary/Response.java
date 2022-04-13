@@ -38,4 +38,12 @@ public class Response {
     public void setDefinitions(List<DefinitionEntry> definitions) {
         this.definitions = definitions;
     }
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "error=" + error +
+                ", definitions=" + definitions +
+                '}';
+    }
 }

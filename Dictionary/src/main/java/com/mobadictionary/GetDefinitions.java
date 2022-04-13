@@ -1,7 +1,9 @@
 package com.mobadictionary;
 
-import com.amazonaws.regions.Regions;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
@@ -15,8 +17,9 @@ import java.util.Map;
 public class GetDefinitions implements RequestHandler<Request,Object> {
 
     AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-            .withRegion(Regions.US_EAST_2)
+            .withRegion("us-east-2")
             .build();
+
     Map<String,String> error;
 
     @Override
