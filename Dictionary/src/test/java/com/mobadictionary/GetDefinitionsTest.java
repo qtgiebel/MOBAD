@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 public class GetDefinitionsTest {
@@ -48,5 +49,14 @@ public class GetDefinitionsTest {
         response = wilson.handleRequest(request, null);
 
         assertEquals(21, response.getDefinitions().size());
+    }
+
+    @Test
+    public void catchBadRequestSuccess() {
+        request.setResource("bad-request");
+
+        response = wilson.handleRequest(request, null);
+
+        assertNotNull(response.getError());
     }
 }
