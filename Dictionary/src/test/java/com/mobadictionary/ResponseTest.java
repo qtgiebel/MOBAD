@@ -8,8 +8,14 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * The type Response test.
+ */
 public class ResponseTest {
 
+    /**
+     * Insert definition entry success.
+     */
     @Test
     public void insertDefinitionEntrySuccess() {
         DefinitionEntry entry = new DefinitionEntry();
@@ -19,10 +25,13 @@ public class ResponseTest {
         assertEquals(1, response.getDefinitions().size());
     }
 
+    /**
+     * Catch error success.
+     */
     @Test
     public void catchErrorSuccess() {
         Response response = new Response();
-        Map<String, String> error = new HashMap<String, String>();
+        Map<String, String> error = new HashMap<>();
         response.setError(error);
 
         assertNotNull(response.getError());

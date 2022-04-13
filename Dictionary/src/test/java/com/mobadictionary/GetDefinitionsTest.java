@@ -7,12 +7,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
+/**
+ * The GetDefinitions tests.
+ */
 public class GetDefinitionsTest {
 
+    /**
+     * The Wilson.
+     */
     GetDefinitions wilson;
+    /**
+     * The Request.
+     */
     Request request;
+    /**
+     * The Response.
+     */
     Response response;
 
+    /**
+     * Reinitializes the handler, request and response objects.
+     */
     @BeforeEach
     public void setUp() {
         wilson = new GetDefinitions();
@@ -20,6 +35,9 @@ public class GetDefinitionsTest {
         response = null;
     }
 
+    /**
+     * Gets all definitions.
+     */
     @Test
     public void getAllDefinitionsSuccess() {
         request.setResource("definitions");
@@ -29,6 +47,9 @@ public class GetDefinitionsTest {
         assertEquals(21, response.getDefinitions().size());
     }
 
+    /**
+     * Handle title request.
+     */
     @Test
     public void handleTitleRequestSuccess() {
         request.setResource("title");
@@ -39,6 +60,9 @@ public class GetDefinitionsTest {
         assertEquals(3, response.getDefinitions().size());
     }
 
+    /**
+     * Catch bad title.
+     */
     @Test
     public void catchBadTitleSuccess() {
         request.setResource("title");
@@ -49,6 +73,9 @@ public class GetDefinitionsTest {
         assertNotNull(response.getError());
     }
 
+    /**
+     * Handle keyword request.
+     */
     @Test
     public void handleKeywordRequestSuccess() {
         request.setResource("keyword");
@@ -61,6 +88,9 @@ public class GetDefinitionsTest {
         assertEquals("The duo lane", response.getDefinitions().get(0).getDefinition());
     }
 
+    /**
+     * Catch bad keyword.
+     */
     @Test
     public void catchBadKeywordSuccess() {
         request.setResource("keyword");
@@ -71,6 +101,9 @@ public class GetDefinitionsTest {
         assertNotNull(response.getError());
     }
 
+    /**
+     * Catch bad request.
+     */
     @Test
     public void catchBadRequestSuccess() {
         request.setResource("bad-request");

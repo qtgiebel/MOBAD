@@ -14,14 +14,30 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Get definitions.
+ */
 public class GetDefinitions implements RequestHandler<Request,Object> {
 
+    /**
+     * The Client.
+     */
     AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
             .withRegion("us-east-2")
             .build();
 
+    /**
+     * Message data to return in case of an error.
+     */
     Map<String,String> error;
 
+    /**
+     * Receives a request object with the search terms for the API,
+     * and returns a response with the requested data.
+     * @param request The API Request.
+     * @param context The API Response.
+     * @return The API Response.
+     */
     @Override
     public Response handleRequest(Request request, Context context) {
         DefinitionEntry entry;
