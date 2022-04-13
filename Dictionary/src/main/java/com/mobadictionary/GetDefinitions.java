@@ -35,12 +35,6 @@ public class GetDefinitions implements RequestHandler<Request,Object> {
 
                 ScanResult result = client.scan(scanRequest);
 
-                if (result.getCount() < 1) {
-                    error.put("errorMessage", "No records could be found");
-                    response.error(error);
-                    return response;
-                }
-
                 for (Map<String, AttributeValue> item : result.getItems()){
                     entry = new DefinitionEntry(item);
                     response.insert(entry);
