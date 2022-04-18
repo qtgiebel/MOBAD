@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 /**
- * The GetDefinitions tests.
+ * This class contains the tests for the GetDefinitions class.
  */
 public class GetDefinitionsTest {
 

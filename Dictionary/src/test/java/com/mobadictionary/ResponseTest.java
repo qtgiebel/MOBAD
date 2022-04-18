@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * The type Response test.
+ * This class contains tests for the Response class.
  */
 public class ResponseTest {
 
