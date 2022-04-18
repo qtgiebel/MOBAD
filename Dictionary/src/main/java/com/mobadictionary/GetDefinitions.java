@@ -1,9 +1,6 @@
 package com.mobadictionary;
 
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
@@ -15,12 +12,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The type Get definitions.
+ * This class gets definition entries from a DynamoDB database and returns them to the user as JSON objects.
  */
 public class GetDefinitions implements RequestHandler<Request,Object> {
 
     /**
-     * The Client.
+     * The Client for accessing the database.
      */
     AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
             .withRegion("us-east-2")

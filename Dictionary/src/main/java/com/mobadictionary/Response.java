@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The type Response.
+ * This class holds the data to be returned to the user when the API is called.
  */
 public class Response {
 
@@ -21,7 +21,7 @@ public class Response {
     }
 
     /**
-     * Insert.
+     * Insert a new definition entry into the response.
      *
      * @param entry the entry
      */
@@ -30,7 +30,7 @@ public class Response {
     }
 
     /**
-     * Error.
+     * Replaces the list of definition entries with an error message.
      *
      * @param error the error
      */
@@ -75,6 +75,10 @@ public class Response {
         this.definitions = definitions;
     }
 
+    /**
+     * Formats the response as a string.
+     * @return the response as a string.
+     */
     @Override
     public String toString() {
         return "Response{" +
