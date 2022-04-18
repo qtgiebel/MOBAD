@@ -5,7 +5,7 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import java.util.Map;
 
 /**
- * The type Definition entry.
+ * The model class for the attributes being mapped from the DICTIONARY table.
  */
 public class DefinitionEntry {
 

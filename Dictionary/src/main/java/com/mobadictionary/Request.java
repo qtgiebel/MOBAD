@@ -1,7 +1,7 @@
 package com.mobadictionary;
 
 /**
- * The type Request.
+ * Handles the Resource and Values being passed in through the API.
  */
 public class Request {
 
